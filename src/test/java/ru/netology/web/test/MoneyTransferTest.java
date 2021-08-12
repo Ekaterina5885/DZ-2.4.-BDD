@@ -56,4 +56,15 @@ class MoneyTransferTest {
         assertEquals(firstCardBalanceResult, dashboardPage.getFirstCardBalance());
         assertEquals(secondCardBalanceResult, dashboardPage.getSecondCardBalance());
     }
+
+    @Test
+    @DisplayName("Should not transfer money if the amount is more on the balance")
+    public void shouldNotTransferMoneyIfAmountMoreBalance() {
+        var dashboardPage = new DashboardPage();
+        int amount = 20_000;
+
+        var transfer = firstCardButton();
+        transfer.transferFromCardToCard(amount, getSecondCardNumber());
+        transfer.getErrorLimit();
+    }
 }

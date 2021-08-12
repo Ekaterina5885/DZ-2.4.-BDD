@@ -20,4 +20,8 @@ public class TransferPage {
         replenishButton.click();
         new DashboardPage();
     }
+    // Перевод суммы превышающий лимит на карте;
+    public void getErrorLimit() {
+        $(byText("Сумма превышает допустимый лимит!"));
+    }
 }
